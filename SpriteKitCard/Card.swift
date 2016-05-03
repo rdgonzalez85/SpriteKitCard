@@ -64,12 +64,13 @@ class Card : SKSpriteNode {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
-            if enlarged { return }
-            
             if touch.tapCount > 1 {
                 enlarge()
             }
+
+            if enlarged { return }
             
+
             zPosition = 15
             let liftUp = SKAction.scaleTo(1.2, duration: 0.2)
             runAction(liftUp, withKey: "pickup")
